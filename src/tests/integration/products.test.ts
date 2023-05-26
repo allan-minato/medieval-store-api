@@ -11,7 +11,7 @@ describe('POST /products', function () {
 
   it('Create a product', async function() {
     const newProduct = ProductModel.build({
-      id: 6,
+      id: 2,
       name: 'Luva do Thanos',
       orderId: 4,
       price: '88',
