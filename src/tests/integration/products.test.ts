@@ -32,4 +32,21 @@ describe('POST /products', function () {
     expect(response.body).to.be.deep.equal([newProduct.dataValues]);
 
   });
+
+  it('List a product', async function() {
+    const listProduct = ProductModel.build(
+      {
+        "id": 1,
+        "name": "Excalibur",
+        "price": "10 peças de ouro",
+        "orderId": 1
+      })
+
+      sinon.stub(ProductModel, 'findAll').resolves([listProduct])
+
+      const res = await chai.request(app).get('/products');
+
+      expect(res.status).to.be.equal(200);
+      expect(res.body).to.be.deep.equal([listProduct.dataValues]);
+  })
 });

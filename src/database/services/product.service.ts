@@ -10,6 +10,13 @@ async function createProduct(
   return create;
 }
 
+async function listProduct(): Promise<Model<Product, ProductInputtableTypes>[]> {
+  const foundProducts = await ProductModel.findAll();
+
+  return foundProducts;
+}
+
 export default {
   createProduct,
+  listProduct,
 };

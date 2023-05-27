@@ -11,6 +11,13 @@ async function createProduct(req: Request, res: Response): Promise<Response> {
   return res.status(201).json(create);
 }
 
+async function listProduct(_req: Request, res: Response): Promise<Response> {
+  const products = await productService.listProduct();
+
+  return res.status(200).json(products);
+}
+
 export default {
   createProduct,
+  listProduct,
 };
