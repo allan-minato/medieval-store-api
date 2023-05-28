@@ -6,7 +6,7 @@ async function createProduct(
   product: ProductInputtableTypes,
 ): Promise<Model<Product, ProductInputtableTypes>> {
   const create = await ProductModel.create(product);
-  
+
   return create;
 }
 

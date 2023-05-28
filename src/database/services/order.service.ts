@@ -1,18 +1,23 @@
-import { Product } from 'src/types/Product';
+import ProductModel from '../models/product.model';
 import OrderModel from '../models/order.model';
 
-async function listOrder(): Promise<unknown> { 
-  const foundOrder = await OrderModel.findAll({
-    include: 'productIds',
+const listOrder = async (): Promise<{ id: number; userId: number; productIds: number[]; }[]> => {
+  const products = (await ProductModel.findAll());
+  const orders = (await OrderModel.findAll());
+  const newOrderArr: { id: number, userId: number, productIds: number[] }[] = [];
+  orders.forEach(({ dataValues: { id, userId } }) => {
+    newOrderArr.push({
+      id,
+      userId,
+      productIds: products
+        .filter(
+          (prod) => prod.dataValues.orderId === id,
+        )
+        .map((prod) => prod.dataValues.id),
+    });
   });
-    
-  return foundOrder.map((order) => {
-    const { id, userId, productIds } = order.toJSON();
-    const orderWithProductIds = (productIds as Product[] | undefined)
-      ?.map((product) => product.id) || [];
-    return { id, userId, productIds: orderWithProductIds };
-  });
-}
+  return newOrderArr;
+};
 
 export default {
   listOrder,
