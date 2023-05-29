@@ -1,6 +1,6 @@
 import { Product } from 'src/types/Product';
 import { Model } from 'sequelize';
-import ProductModel, { ProductInputtableTypes } from '../models/product.model';
+import ProductModel, { ProductInputtableTypes } from '../database/models/product.model';
 
 async function createProduct(
   product: ProductInputtableTypes,

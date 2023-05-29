@@ -1,5 +1,5 @@
-import ProductModel from '../models/product.model';
-import OrderModel from '../models/order.model';
+import ProductModel from '../database/models/product.model';
+import OrderModel from '../database/models/order.model';
 
 const listOrder = async (): Promise<{ id: number; userId: number; productIds: number[]; }[]> => {
   const products = (await ProductModel.findAll());
