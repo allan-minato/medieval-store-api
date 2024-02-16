@@ -1,10 +1,9 @@
 # Medieval Store API
 
-Bem-vindo à Medieval Store API, uma aplicação desenvolvida em Typescript e Sequelize para gerenciar itens medievais, como espadas feitas sob encomenda. Este projeto inclui autenticação JWT para proteger rotas sensíveis, além de testes para garantir o funcionamento correto das operações.
+Bem-vindo à Medieval Store API, uma aplicação desenvolvida em Typescript e Sequelize para gerenciar itens medievais, como espadas feitas sob encomenda. Este projeto inclui autenticação JWT para proteger rotas sensíveis, além de testes usando Jest para garantir o funcionamento correto das operações. A aplicação está containerizada usando Docker para facilitar a implantação.
 
 ## Estrutura do Projeto
 
-```plaintext
 ./src
 |-- controllers
 |-- services
@@ -14,45 +13,57 @@ Bem-vindo à Medieval Store API, uma aplicação desenvolvida em Typescript e Se
 |-- middleware
 |-- utils
 
-controllers: Contém os controladores responsáveis por gerenciar as requisições HTTP.
-services: Agrupa a lógica de negócios da aplicação, separando-a dos controladores.
-models: Armazena os modelos Sequelize que representam as entidades do banco de dados.
-routes: Define as rotas da API.
-config: Configurações da aplicação, como conexão com o banco de dados.
-middleware: Middleware para autenticação JWT.
-utils: Funções utilitárias.
+- controllers: Contém os controladores responsáveis por gerenciar as requisições HTTP.
+- services: Agrupa a lógica de negócios da aplicação, separando-a dos controladores.
+- models: Armazena os modelos Sequelize que representam as entidades do banco de dados.
+- routes: Define as rotas da API.
+- config: Configurações da aplicação, como conexão com o banco de dados.
+- middleware: Middleware para autenticação JWT.
+- utils: Funções utilitárias.
 
-Funcionalidades:
+## Funcionalidades
 
-Autenticação
-Rota para login, retornando um token JWT para autenticação em rotas protegidas.
+### Autenticação
 
-Itens Medievais
-Criação de itens medievais personalizados.
-Recuperação de informações sobre um item medieval específico.
-Atualização de detalhes de um item medieval.
+- Rota para login, retornando um token JWT para autenticação em rotas protegidas.
 
-JWT Authentication:
+### Itens Medievais
+
+- Criação de itens medievais personalizados.
+- Recuperação de informações sobre um item medieval específico.
+- Atualização de detalhes de um item medieval.
+
+## JWT Authentication
+
 Para acessar rotas protegidas, inclua o token JWT na header da requisição:
 
 Authorization: Bearer <seu_token_jwt>
 
-Como Executar:
+## Como Executar
 
-Instale as dependências utilizando npm install.
+1. Instale as dependências:
 
-Configure o banco de dados no arquivo ./src/config/database.ts.
+npm install
 
-Execute as migrations utilizando npm run migrate.
+2. Configure o banco de dados no arquivo ./src/config/database.ts.
 
-Inicie a aplicação utilizando npm start.
+3. Execute as migrations:
 
-Testes:
+npm run migrate
 
-Os testes da aplicação estão localizados no diretório ./tests. Execute os testes com o seguinte comando npm test.
+4. Inicie a aplicação:
 
+npm start
 
+## Testes
 
+Os testes da aplicação estão localizados no diretório ./tests. Execute os testes com o seguinte comando:
 
+npm test
 
+## Docker
 
+A aplicação está containerizada usando Docker. Para construir e executar o contêiner, execute:
+
+docker build -t medieval-store-api .
+docker run -p 3000:3000 medieval-store-api
