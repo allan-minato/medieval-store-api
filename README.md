@@ -4,8 +4,7 @@ Bem-vindo à Medieval Store API, uma aplicação desenvolvida em Typescript e Se
 
 ## Estrutura do Projeto
 
-```plaintext
-./src
+```./src
 |-- controllers
 |-- services
 |-- models
@@ -13,6 +12,7 @@ Bem-vindo à Medieval Store API, uma aplicação desenvolvida em Typescript e Se
 |-- config
 |-- middleware
 |-- utils
+```
 
 - controllers: Contém os controladores responsáveis por gerenciar as requisições HTTP.
 - services: Agrupa a lógica de negócios da aplicação, separando-a dos controladores.
