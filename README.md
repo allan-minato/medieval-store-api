@@ -64,7 +64,4 @@ npm test
 
 ## Docker
 
-A aplicação está containerizada usando Docker. Para construir e executar o contêiner, execute:
-
-docker build -t medieval-store-api .
-docker run -p 3000:3000 medieval-store-api
+A aplicação está containerizada usando Docker.
