@@ -4,6 +4,7 @@ Bem-vindo à Medieval Store API, uma aplicação desenvolvida em Typescript e Se
 
 ## Estrutura do Projeto
 
+```plaintext
 ./src
 |-- controllers
 |-- services
